@@ -2,7 +2,7 @@
 
 Grunt JSON minification task that does not concatinate the output. For concatination use `grunt-minjson`.
 
-Note: This task is currently only compatible with Grunt 0.3.x.
+Note: This task is since version `0.4.0` only compatible with Grunt ~0.4.0.
 
 ## Getting Started
 Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-json-minify`
