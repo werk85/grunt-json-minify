@@ -1,0 +1,39 @@
+{
+  "name": "grunt-json-minify",
+  "description": "JSON minification plugin without concatination.",
+  "version": "0.3.0",
+  "homepage": "https://github.com/werk85/grunt-json-minify",
+  "author": {
+    "name": "Malte Legenhausen",
+    "email": "legenhausen@werk85.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/werk85/grunt-json-minify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/werk85/grunt-json-minify/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/werk85/grunt-json-minify/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "grunt.js",
+  "engines": {
+    "node": "0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "json5": "~0.2.0"
+  }
+}
