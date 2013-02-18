@@ -8,7 +8,7 @@
 var JSON5 = require('json5');
 
 module.exports = function(grunt) {
-  grunt.registerTask('json-minify', 'JSON minification task', function() {
+  grunt.registerMultiTask('json-minify', 'JSON minification task', function() {
     var totalInBytes = 0;
     var totalOutBytes = 0;
     var totalProfitPercents = 0;

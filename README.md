@@ -1,6 +1,8 @@
 # grunt-json-minify
 
-The best sample grunt tasks ever.
+Grunt JSON minification task that does not concatinate the output. For concatination use `grunt-minjson`.
+
+Note: This task is currently only compatible with Grunt 0.3.x.
 
 ## Getting Started
 Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-json-minify`
@@ -15,14 +17,19 @@ grunt.loadNpmTasks('grunt-json-minify');
 [getting_started]: https://github.com/gruntjs/grunt/blob/master/docs/getting_started.md
 
 ## Documentation
-_(Coming soon)_
 
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
+Set the `files` parameter to the directory you want to minify. The minification is inplace, so you want to copy the data to the destination before you minify.
 
-## Release History
-_(Nothing yet)_
+Example:
+
+```
+'json-minify': {
+  build: {
+    files: 'build/**/*.json'
+  }
+}
+```
 
 ## License
-Copyright (c) 2013 Malte Legenhausen  
+Copyright (c) 2013 werk85
 Licensed under the MIT license.
