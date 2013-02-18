@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     var totalInBytes = 0;
     var totalOutBytes = 0;
     var totalProfitPercents = 0;
-    var files = grunt.file.expandFiles(this.data.files);
+    var files = grunt.file.expand(this.data.files);
 
     function calcCompression(inBytes, outBytes) {
       var profitPercents = 100 - outBytes * 100 / inBytes;
