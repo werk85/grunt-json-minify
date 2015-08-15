@@ -25,6 +25,11 @@ module.exports = function(grunt) {
       var data = grunt.file.read(filepath);
       var compressed;
 
+      if(!data.length){
+          grunt.log.writeln('Skipping File "' + filepath + '" 0kb size');
+          return;
+      }
+
       try {
         compressed = JSON5.stringify(JSON5.parse(data));
       } catch (err) {
