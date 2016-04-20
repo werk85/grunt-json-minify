@@ -34,8 +34,8 @@ module.exports = function(grunt) {
       grunt.file.write(filepath, compressed);
 
       // and print profit info
-      grunt.log.writeln('File "' + filepath + '":');
-      grunt.log.ok(calcCompression(data.length, compressed.length));
+      grunt.verbose.writeln('File "' + filepath + '":');
+      grunt.verbose.ok(calcCompression(data.length, compressed.length));
 
       totalInBytes += data.length;
       totalOutBytes += compressed.length;
