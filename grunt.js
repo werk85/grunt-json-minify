@@ -1,9 +1,12 @@
 module.exports = function(grunt) {
-
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+    
   // Project configuration.
   grunt.initConfig({
-    lint: {
-      files: ['grunt.js', 'tasks/**/*.js']
+    jshint: {
+        code: {
+        src: ['tasks/**/*.js']
+      }
     },
     watch: {
       files: '<config:lint.files>',
@@ -33,5 +36,5 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   // Default task.
-  grunt.registerTask('default', 'lint');
+  grunt.registerTask('default', 'jshint');
 };

@@ -34,6 +34,7 @@
     "gruntplugin"
   ],
   "dependencies": {
+    "grunt-contrib-jshint": "^1.0.0",
     "json5": "~0.2.0"
   }
 }
