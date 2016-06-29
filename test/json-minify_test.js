@@ -31,5 +31,14 @@ exports['json-minify'] = {
     test.equal(actual, expected, 'should a minified json in a custom format');
 
     test.done();
+  },
+
+  empty_file: function (test) {
+    test.expect(1);
+    const actual = grunt.file.read('.tmp/empty_file.json');
+    const expected = grunt.file.read('.tmp/empty_file.json');
+    test.equal(actual, expected, 'should do when an empty file is given');
+
+    test.done();
   }
 };

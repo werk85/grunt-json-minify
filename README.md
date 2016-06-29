@@ -33,6 +33,7 @@ Example:
 ### Options
 
  * `encoding`(Default `undefined`) The encoding that should be used for reading and writing the json files.
+ * `skipOnError` (Default `false`) Ignore files that produce a parse error while minification.
 
 Internally this plugin uses the `JSON.stringify` and `JSON.parse` method for minification. You can configure this process by the following parameters:
 

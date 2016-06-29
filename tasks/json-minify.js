@@ -12,6 +12,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('json-minify', 'JSON minification task', function() {
     const files = grunt.file.expand(this.data.files);
     const options = this.options({
+      skipOnError: false,
       encoding: undefined,
       reviver: undefined,
       replacer: undefined,
@@ -25,7 +26,7 @@ module.exports = function(grunt) {
     let totalOutBytes = 0;
 
     function calcCompression(inBytes, outBytes) {
-      const profitPercents = 100 - outBytes * 100 / inBytes;
+      const profitPercents = inBytes > 0 ? 100 - outBytes * 100 / inBytes : 0;
       return (Math.round((inBytes / 1024) * 1000) / 1000) + ' KiB - ' +
         ((Math.round(profitPercents * 10) / 10) + '%').green + ' = ' +
         (Math.round((outBytes / 1024) * 1000) / 1000) + ' KiB';
@@ -33,23 +34,17 @@ module.exports = function(grunt) {
 
     files.forEach(function(filepath) {
       const data = grunt.file.read(filepath, { encoding: options.encoding });
-
-      let compressed = '';
-
       try {
-        compressed = options.transform(data, options);
+        const compressed = options.transform(data, options);
+        grunt.file.write(filepath, compressed, { encoding: options.encoding });
+        grunt.verbose.ok(calcCompression(data.length, compressed.length));
+
+        totalInBytes += data.length;
+        totalOutBytes += compressed.length;
       } catch (err) {
-        grunt.fail.warn(err);
+        grunt.verbose.error(`Error parsing file "${filepath}"`);
+        grunt[options.skipOnError ? 'verbose' : 'fail'].error(err);
       }
-
-      grunt.file.write(filepath, compressed, { encoding: options.encoding });
-
-      // and print profit info
-      grunt.verbose.writeln('File "' + filepath + '":');
-      grunt.verbose.ok(calcCompression(data.length, compressed.length));
-
-      totalInBytes += data.length;
-      totalOutBytes += compressed.length;
     });
 
     grunt.log.writeln('\nTotal compressed: ' + files.length + ' files');

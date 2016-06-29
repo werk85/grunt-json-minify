@@ -15,6 +15,8 @@ module.exports = function(grunt) {
       ]
     },
 
+    clean: ['.tmp'],
+
     copy: {
       test: {
         expand: true,
@@ -38,6 +40,12 @@ module.exports = function(grunt) {
           }
         },
         files: '.tmp/custom_transform.json'
+      },
+      empty_file: {
+        options: {
+          skipOnError: true
+        },
+        files: '.tmp/empty_file.json'
       }
     },
 
@@ -48,11 +56,12 @@ module.exports = function(grunt) {
 
   // Load local tasks.
   grunt.loadTasks('tasks');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   // Default task.
   grunt.registerTask('default', 'test');
-  grunt.registerTask('test', ['jshint', 'copy', 'json-minify', 'nodeunit']);
+  grunt.registerTask('test', ['jshint', 'clean', 'copy', 'json-minify', 'nodeunit']);
 };
