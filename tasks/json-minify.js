@@ -35,6 +35,11 @@ module.exports = function(grunt) {
 
       let compressed = '';
 
+      if(!data.length){
+          grunt.log.writeln('Skipping File "' + filepath + '" 0kb size');
+          return;
+      }
+
       try {
         compressed = options.transform(data, options);
       } catch (err) {
