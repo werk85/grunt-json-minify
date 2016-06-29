@@ -12,6 +12,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('json-minify', 'JSON minification task', function() {
     const files = grunt.file.expand(this.data.files);
     const options = this.options({
+      encoding: undefined,
       reviver: undefined,
       replacer: undefined,
       space: '',
@@ -31,7 +32,7 @@ module.exports = function(grunt) {
     }
 
     files.forEach(function(filepath) {
-      const data = grunt.file.read(filepath);
+      const data = grunt.file.read(filepath, { encoding: options.encoding });
 
       let compressed = '';
 
@@ -41,7 +42,7 @@ module.exports = function(grunt) {
         grunt.fail.warn(err);
       }
 
-      grunt.file.write(filepath, compressed);
+      grunt.file.write(filepath, compressed, { encoding: options.encoding });
 
       // and print profit info
       grunt.verbose.writeln('File "' + filepath + '":');

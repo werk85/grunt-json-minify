@@ -32,6 +32,8 @@ Example:
 
 ### Options
 
+ * `encoding`(Default `undefined`) The encoding that should be used for reading and writing the json files.
+
 Internally this plugin uses the `JSON.stringify` and `JSON.parse` method for minification. You can configure this process by the following parameters:
 
  * `reviver` (Default `undefined`) If a function, prescribes how the value originally produced by parsing is transformed, before being returned.
