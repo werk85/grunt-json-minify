@@ -6,6 +6,8 @@
  * Licensed under the MIT license.
  */
 
+'use strict';
+
 const JSON5 = require('json5');
 
 module.exports = function(grunt) {
@@ -22,7 +24,7 @@ module.exports = function(grunt) {
         (Math.round((outBytes / 1024) * 1000) / 1000) + ' KiB';
     }
 
-    files.forEach(function (filepath) {
+    files.forEach(function(filepath) {
       const data = grunt.file.read(filepath);
 
       let compressed = '';

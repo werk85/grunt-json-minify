@@ -1,3 +1,5 @@
+'use strict';
+
 const grunt = require('grunt');
 
 exports['json-minify'] = {
