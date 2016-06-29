@@ -8,11 +8,17 @@
 
 'use strict';
 
-const JSON5 = require('json5');
-
 module.exports = function(grunt) {
   grunt.registerMultiTask('json-minify', 'JSON minification task', function() {
     const files = grunt.file.expand(this.data.files);
+    const options = this.options({
+      reviver: undefined,
+      replacer: undefined,
+      space: '',
+      transform: function (data, options) {
+        return JSON.stringify(JSON.parse(data, options.reviver), options.replacer, options.space);
+      }
+    });
 
     let totalInBytes = 0;
     let totalOutBytes = 0;
@@ -30,7 +36,7 @@ module.exports = function(grunt) {
       let compressed = '';
 
       try {
-        compressed = JSON5.stringify(JSON5.parse(data));
+        compressed = options.transform(data, options);
       } catch (err) {
         grunt.fail.warn(err);
       }

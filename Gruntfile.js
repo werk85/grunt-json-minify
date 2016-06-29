@@ -1,5 +1,7 @@
 'use strict';
 
+const JSON5 = require('json5');
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -28,6 +30,14 @@ module.exports = function(grunt) {
       },
       duplicate_keys: {
         files: '.tmp/duplicate_keys.json'
+      },
+      custom_transform: {
+        options: {
+          transform: function (data) {
+            return JSON5.stringify(JSON5.parse(data));
+          }
+        },
+        files: '.tmp/custom_transform.json'
       }
     },
 

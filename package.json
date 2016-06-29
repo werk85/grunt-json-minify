@@ -31,7 +31,8 @@
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-nodeunit": "^1.0.0"
+    "grunt-contrib-nodeunit": "^1.0.0",
+    "json5": "^0.5.0"
   },
   "keywords": [
     "grunt",
@@ -42,7 +43,5 @@
     "json5",
     "compress"
   ],
-  "dependencies": {
-    "json5": "0.5.0"
-  }
+  "dependencies": {}
 }
