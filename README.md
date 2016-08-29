@@ -18,14 +18,14 @@ grunt.loadNpmTasks('grunt-json-minify');
 
 ## Usage
 
-Set the `files` parameter to the directory you want to minify. The minification is inplace, so you want to copy the data to the destination before you minify.
+Set the `fileList` parameter to the directory you want to minify. The minification is inplace, so you want to copy the data to the destination before you minify.
 
 Example:
 
 ```js
 'json-minify': {
   build: {
-    files: 'build/**/*.json'
+    fileList: ['build/**/*.json']
   }
 }
 ```
@@ -53,7 +53,7 @@ If you want to use your own minification algorithm you can overwrite the default
     }
   },
   build: {
-    files: 'build/**/*.json'
+    fileList: 'build/**/*.json'
   }
 }
 ```
