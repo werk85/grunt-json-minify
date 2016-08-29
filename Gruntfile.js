@@ -28,10 +28,10 @@ module.exports = function(grunt) {
 
     'json-minify': {
       default_options: {
-        files: '.tmp/default_options.json'
+        fileList: ['.tmp/default_options.json']
       },
       duplicate_keys: {
-        files: '.tmp/duplicate_keys.json'
+        fileList: ['.tmp/duplicate_keys.json']
       },
       custom_transform: {
         options: {
@@ -39,13 +39,13 @@ module.exports = function(grunt) {
             return JSON5.stringify(JSON5.parse(data));
           }
         },
-        files: '.tmp/custom_transform.json'
+        fileList: ['.tmp/custom_transform.json']
       },
       empty_file: {
         options: {
           skipOnError: true
         },
-        files: '.tmp/empty_file.json'
+        fileList: ['.tmp/empty_file.json']
       }
     },
 
