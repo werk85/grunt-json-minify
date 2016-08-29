@@ -10,7 +10,7 @@
 
 module.exports = function(grunt) {
   grunt.registerMultiTask('json-minify', 'JSON minification task', function() {
-    const files = grunt.file.expand(this.data.files);
+    const files = grunt.file.expand(this.data.fileList);
     const options = this.options({
       skipOnError: false,
       encoding: undefined,
