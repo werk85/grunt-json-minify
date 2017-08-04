@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/werk85/grunt-json-minify.svg?branch=master)](https://travis-ci.org/werk85/grunt-json-minify)
 
-Grunt JSON minification task that does not concatinate the output. For concatination use [grunt-minjson](https://github.com/shama/grunt-minjson).
+Grunt JSON minification task that does not concatenate the output. For concatenation use [grunt-minjson](https://github.com/shama/grunt-minjson).
 
 ## Getting Started
 Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-json-minify`
